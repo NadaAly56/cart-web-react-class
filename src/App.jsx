@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails";
 import Header from "./components/Header";
+import { AppContextProvider } from "./lib/AppContext";
 class App extends React.Component {
   state = { name: "nada" };
   constructor(props) {
@@ -15,12 +16,14 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<ProductDetails />} />
-        </Routes>
-      </Router>
+      <AppContextProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<ProductDetails />} />
+          </Routes>
+        </Router>
+      </AppContextProvider>
     );
   }
 }

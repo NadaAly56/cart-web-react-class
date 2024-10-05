@@ -1,6 +1,7 @@
-import { Component } from "react";export default class Counter extends Component {
+import { Component } from "react";
+export default class Counter extends Component {
   state = {
-    count: 0,
+    count: 1,
   };
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ import { Component } from "react";export default class Counter extends Component
     });
   }
   decrement() {
-    if (this.state.count > 0)
+    if (this.state.count > 1)
       this.setState((pre) => {
         return {
           count: pre.count - 1,
@@ -26,7 +27,7 @@ import { Component } from "react";export default class Counter extends Component
     return (
       <div className="row counter">
         <p
-          className={`${this.state.count <= 0 ? "disabled" : "pointer"}`}
+          className={`${this.state.count <= 1 ? "disabled" : "pointer"}`}
           onClick={this.decrement}
         >
           {" "}

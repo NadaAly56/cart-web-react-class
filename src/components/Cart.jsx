@@ -1,8 +1,10 @@
 import { Component } from "react";
+import { AppContext } from "../lib/AppContext";
 export default class Cart extends Component {
   state = {
     isCartOpen: false,
   };
+  static contextType = AppContext;
   constructor(props) {
     super(props);
     this.handleOpenCart = this.handleOpenCart.bind(this);
@@ -16,6 +18,7 @@ export default class Cart extends Component {
     this.setState({ isCartOpen: true });
   }
   render() {
+    const { products, removeProductFromCart } = this.context;
     return (
       <>
         <div
@@ -35,6 +38,22 @@ export default class Cart extends Component {
                     ✖
                   </h3>
                 </div>
+                {products.map((product) => {
+                  return (
+                    <div
+                      key={product.name}
+                      className="row justify-between w-100"
+                    >
+                      <p>{product.name}</p>
+                      <div
+                        className="pointer"
+                        onClick={() => removeProductFromCart(product.id)}
+                      >
+                        <img src="/images/icons/trash.svg" alt="trash" />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

@@ -1,4 +1,5 @@
 const data = [  {
+    id: 1,
     name: "10921",
     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.",
     price: "2999",
@@ -8,6 +9,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos1.svg",
   },
   {
+    id: 2,
     name: "10753",
     desc: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.",
     price: "4120",
@@ -17,6 +19,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 3,
     name: "10545",
     desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     price: "2800",
@@ -26,6 +29,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 4,
     name: "10432",
     desc: "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.",
     price: "3750",
@@ -35,6 +39,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 5,
     name: "11023",
     desc: "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humor and the like).",
     price: "4900",
@@ -44,6 +49,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 6,
     name: "10987",
     desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
     price: "3400",
@@ -53,6 +59,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 7,
     name: "10378",
     desc: "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
     price: "3250",
@@ -62,6 +69,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 8,
     name: "10856",
     desc: "Lorem Ipsum is simply dummy text of the printing industry, but its origins date back to a piece of classical literature.",
     price: "2780",
@@ -71,6 +79,7 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
   {
+    id: 9,
     name: "11245",
     desc: "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
     price: "5050",
@@ -80,4 +89,5 @@ const data = [  {
     imgSrc: "src/utils/images/pos2.svg",
   },
 ];
+
 export default data;

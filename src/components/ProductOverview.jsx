@@ -2,11 +2,14 @@ import { Component } from "react";
 import PropTypes from "prop-types";
 import Counter from "./Counter";
 import StarRating from "./StarRating";
+import { AppContext } from "../lib/AppContext";
 export default class ProductOverview extends Component {
   static propTypes = {
     product: PropTypes.object.isRequired,
   };
+  static contextType = AppContext;
   render() {
+    const { addProductToCart } = this.context;
     return (
       <div className="row product-overview">
         <div className="product-img">
@@ -38,7 +41,9 @@ export default class ProductOverview extends Component {
           <p>{this.props.product.desc}</p>
           <div className="row add-action">
             <Counter />
-            <button>Buy now</button>
+            <button onClick={() => addProductToCart(this.props.product)}>
+              Buy now
+            </button>
           </div>
           <div className="row addetional-actions">
             <li className="row">
