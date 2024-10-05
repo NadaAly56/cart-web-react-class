@@ -1,3 +1,6 @@
+import pos1 from "/src/utils/images/pos1.svg";
+import pos2 from "/src/utils/images/pos2.svg";
+
 const data = [
   {
     id: 1,
@@ -7,7 +10,7 @@ const data = [
     inSale: true,
     saleAmount: 0.1,
     rate: "5",
-    imgSrc: "/src/utils/images/pos1.svg",
+    imgSrc: pos1,
   },
   {
     id: 2,
@@ -17,7 +20,7 @@ const data = [
     inSale: false,
     saleAmount: 0.0,
     rate: "4.8",
-    imgSrc: "/src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 3,
@@ -27,7 +30,7 @@ const data = [
     inSale: true,
     saleAmount: 0.2,
     rate: "4.2",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 4,
@@ -37,7 +40,7 @@ const data = [
     inSale: true,
     saleAmount: 0.05,
     rate: "5",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 5,
@@ -47,7 +50,7 @@ const data = [
     inSale: false,
     saleAmount: 0.0,
     rate: "3.9",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 6,
@@ -57,7 +60,7 @@ const data = [
     inSale: true,
     saleAmount: 0.25,
     rate: "4.7",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 7,
@@ -67,7 +70,7 @@ const data = [
     inSale: true,
     saleAmount: 0.1,
     rate: "4.3",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 8,
@@ -77,7 +80,7 @@ const data = [
     inSale: false,
     saleAmount: 0.0,
     rate: "4.0",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
   {
     id: 9,
@@ -87,7 +90,7 @@ const data = [
     inSale: true,
     saleAmount: 0.3,
     rate: "4.9",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: pos2,
   },
 ];
 
