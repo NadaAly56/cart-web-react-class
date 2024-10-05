@@ -14,6 +14,10 @@ export default class ProductOverview extends Component {
   handleCountChange = (newCount) => {
     this.setState({ count: newCount });
   };
+  componentDidUpdate(prevProps) {
+    if (prevProps.product.name !== this.props.product.name)
+      this.setState({ count: 1 });
+  }
   render() {
     const { addProductToCart, handleOpenCart } = this.context;
     const { product } = this.props;

@@ -14,10 +14,13 @@ export default class ProductCard extends Component {
     return (
       <div className="card">
         <div
-          onClick={() => handleCurrentProduct(product)}
+          onClick={() => {
+            handleCurrentProduct(product);
+            window.scroll(0, 0);
+          }}
           className="card-image pointer"
         >
-          <img src={product.imgSrc} alt="Device Image" width={230} />
+          <img src={product.imgSrc} alt={product.name} width={230} />
         </div>
         <div className="card-content">
           <h3 className="item-id">{product.name}</h3>
