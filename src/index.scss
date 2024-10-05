@@ -255,6 +255,12 @@ ul {
   right: -110px;
   top: 194%;
   z-index: 10;
+  @include xs {
+    right: -70px;
+  }
+  @include sm {
+    right: -70px;
+  }
 }
 .overlay {
   width: 100vw;
@@ -312,7 +318,6 @@ ul {
   @include sm {
     width: 100%;
     text-align: center;
-    height: 350px;
     padding: 15px 44px;
   }
   img {
@@ -420,7 +425,18 @@ ul {
     max-height: 200px;
     padding: 0 30px;
     overflow-y: auto;
-
+    @include xs {
+      padding: 0 15px;
+      img {
+        width: 35px;
+      }
+    }
+    @include sm {
+      padding: 0 15px;
+      img {
+        width: 35px;
+      }
+    }
     .product {
       border-bottom: 1px solid $border;
       padding-bottom: 21px;
@@ -443,6 +459,12 @@ ul {
   button {
     padding: 16px 120px;
     border-radius: 16px;
+    @include xs {
+      padding: 16px 20px;
+    }
+    @include sm {
+      padding: 16px 20px;
+    }
   }
 
   .sub {
@@ -460,6 +482,18 @@ ul {
   .total {
     color: $red;
     font-size: 18px;
+  }
+  @include xs {
+    width: 250px;
+    &:before {
+      right: 70px;
+    }
+  }
+  @include sm {
+    width: 250px;
+    &:before {
+      right: 70px;
+    }
   }
 }
 .cart-padge {
@@ -595,4 +629,39 @@ ul {
 
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+/* Centering the logo and progress bar */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Background color for the loading screen */
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  width: 600px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: $blue; /* Color of the progress bar */
+  transition: width 0.1s ease;
+}
+
+.main-content {
+  padding: 20px;
+  text-align: center;
 }

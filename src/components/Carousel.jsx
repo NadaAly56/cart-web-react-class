@@ -1,5 +1,4 @@
-import { Component } from "react";
-import Slider from "react-slick";
+import { Component } from "react";import Slider from "react-slick";
 import ProductCard from "./ProductCard";
 import data from "../utils/services/data";
 export default class Carousel extends Component {
@@ -8,32 +7,32 @@ export default class Carousel extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 4,
+      slidesToScroll: 1,
       autoplay: false,
       autoplaySpeed: 2000,
       responsive: [
         {
-          breakpoint: 2000, // Extra Large Devices
+          breakpoint: 2000,
           settings: {
-            slidesToShow: 4, // Show 3 slides
+            slidesToShow: 4,
           },
         },
         {
-          breakpoint: 992, // Large Devices
+          breakpoint: 992,
           settings: {
-            slidesToShow: 2, // Show 2 slides
+            slidesToShow: 2,
           },
         },
         {
-          breakpoint: 768, // Medium Devices
+          breakpoint: 768,
           settings: {
-            slidesToShow: 1, // Show 1 slide
+            slidesToShow: 1,
           },
         },
         {
-          breakpoint: 576, // Small Devices
+          breakpoint: 576,
           settings: {
-            slidesToShow: 1, // Show 1 slide
+            slidesToShow: 1,
           },
         },
       ],

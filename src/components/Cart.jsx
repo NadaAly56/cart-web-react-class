@@ -11,7 +11,12 @@ export default class Cart extends Component {
       handleCloseCart,
     } = this.context;
     const subTotal = products.reduce(
-      (acc, current) => acc + current.price * (current.count ?? 1),
+      (acc, current) =>
+        acc +
+        (current.inSale
+          ? current.price - Math.floor(current.price * current.saleAmount)
+          : current.price) *
+          (current.count ?? 1),
       0
     );
     return (
@@ -55,7 +60,13 @@ export default class Cart extends Component {
                               <div>
                                 <p>{product.name}</p>
                                 <p className="price">
-                                  {product.price} EGP{" "}
+                                  {product.inSale
+                                    ? product.price -
+                                      Math.floor(
+                                        product.price * product.saleAmount
+                                      )
+                                    : product.price}{" "}
+                                  EGP{" "}
                                   {product.count > 1 && (
                                     <span>X {product.count}</span>
                                   )}
