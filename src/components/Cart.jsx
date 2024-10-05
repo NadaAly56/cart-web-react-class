@@ -1,5 +1,4 @@
-import { Component } from "react";
-import { AppContext } from "../lib/AppContext";
+import { Component } from "react";import { AppContext } from "../lib/AppContext";
 export default class Cart extends Component {
   static contextType = AppContext;
   render() {
