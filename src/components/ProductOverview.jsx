@@ -1,47 +1,55 @@
-import { Component } from "react";
-import PropTypes from "prop-types";
+import { Component } from "react";import PropTypes from "prop-types";
 import Counter from "./Counter";
 import StarRating from "./StarRating";
 import { AppContext } from "../lib/AppContext";
 export default class ProductOverview extends Component {
+  state = {
+    count: 1,
+  };
   static propTypes = {
     product: PropTypes.object.isRequired,
   };
   static contextType = AppContext;
+  handleCountChange = (newCount) => {
+    this.setState({ count: newCount });
+  };
   render() {
-    const { addProductToCart } = this.context;
+    const { addProductToCart, handleOpenCart } = this.context;
+    const { product } = this.props;
+    const { count } = this.state;
     return (
       <div className="row product-overview">
         <div className="product-img">
-          {this.props.product.inSale && (
-            <div className="sale-padge">
-              {this.props.product.saleAmount * 100}% Off
-            </div>
+          {product.inSale && (
+            <div className="sale-padge">{product.saleAmount * 100}% Off</div>
           )}
-          <img src={this.props.product.imgSrc} alt={this.props.product.name} />
+          <img src={product.imgSrc} alt={product.name} />
         </div>
 
         <div className="product-info">
-          <h3>{this.props.product.name}</h3>
-          <StarRating rating={+this.props.product.rate} />
+          <h3>{product.name}</h3>
+          <StarRating rating={+product.rate} />
           <div className="row">
             <h3 className="price">
-              {this.props.product.inSale
-                ? this.props.product.price -
-                  Math.floor(
-                    this.props.product.price * this.props.product.saleAmount
-                  )
-                : this.props.product.price}{" "}
+              {product.inSale
+                ? product.price - Math.floor(product.price * product.saleAmount)
+                : product.price}{" "}
               EP
             </h3>
-            {this.props.product.inSale && (
-              <p className="text-line">{this.props.product.price}</p>
-            )}
+            {product.inSale && <p className="text-line">{product.price}</p>}
           </div>
-          <p>{this.props.product.desc}</p>
+          <p>{product.desc}</p>
           <div className="row add-action">
-            <Counter />
-            <button onClick={() => addProductToCart(this.props.product)}>
+            <Counter count={count} onCountChange={this.handleCountChange} />
+            <button
+              onClick={() => {
+                addProductToCart({
+                  ...product,
+                  count,
+                });
+                handleOpenCart();
+              }}
+            >
               Buy now
             </button>
           </div>

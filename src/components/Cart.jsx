@@ -1,40 +1,29 @@
-import { Component } from "react";
-import { AppContext } from "../lib/AppContext";
+import { Component } from "react";import { AppContext } from "../lib/AppContext";
 export default class Cart extends Component {
-  state = {
-    isCartOpen: false,
-  };
   static contextType = AppContext;
-  constructor(props) {
-    super(props);
-    this.handleOpenCart = this.handleOpenCart.bind(this);
-    this.handleCloseCart = this.handleCloseCart.bind(this);
-  }
-  handleCloseCart(e) {
-    e.stopPropagation();
-    this.setState({ isCartOpen: false });
-  }
-  handleOpenCart() {
-    this.setState({ isCartOpen: true });
-  }
   render() {
-    const { products, removeProductFromCart } = this.context;
+    const {
+      products,
+      productsCount,
+      removeProductFromCart,
+      isCartOpen,
+      handleOpenCart,
+      handleCloseCart,
+    } = this.context;
     return (
       <>
-        <div
-          className={`${this.state.isCartOpen ? "overlay" : "d-none"}`}
-        ></div>
+        <div className={`${isCartOpen ? "overlay" : "d-none"}`}></div>
         <li
-          onClick={this.handleOpenCart}
+          onClick={handleOpenCart}
           className="circle-icon row position-relative"
         >
           <img src="/images/icons/cart.svg" alt="cart" />
-          {this.state.isCartOpen && (
+          {isCartOpen && (
             <div className="cart-card position-absolute">
               <div className="row cart">
                 <div className="row justify-between w-100">
-                  <h3>my cart (X)</h3>
-                  <h3 onClick={this.handleCloseCart} className="pointer">
+                  <h3>my cart ({productsCount})</h3>
+                  <h3 onClick={handleCloseCart} className="pointer">
                     ✖
                   </h3>
                 </div>
