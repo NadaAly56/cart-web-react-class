@@ -1,4 +1,5 @@
-const data = [  {
+const data = [
+  {
     id: 1,
     name: "10921",
     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.",
@@ -6,7 +7,7 @@ const data = [  {
     inSale: true,
     saleAmount: 0.1,
     rate: "5",
-    imgSrc: "src/utils/images/pos1.svg",
+    imgSrc: "/src/utils/images/pos1.svg",
   },
   {
     id: 2,
@@ -16,7 +17,7 @@ const data = [  {
     inSale: false,
     saleAmount: 0.0,
     rate: "4.8",
-    imgSrc: "src/utils/images/pos2.svg",
+    imgSrc: "/src/utils/images/pos2.svg",
   },
   {
     id: 3,

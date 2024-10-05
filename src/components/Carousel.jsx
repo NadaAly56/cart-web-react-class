@@ -7,14 +7,40 @@ export default class Carousel extends Component {
     const settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 4,
       autoplay: false,
       autoplaySpeed: 2000,
+      responsive: [
+        {
+          breakpoint: 2000, // Extra Large Devices
+          settings: {
+            slidesToShow: 4, // Show 3 slides
+          },
+        },
+        {
+          breakpoint: 992, // Large Devices
+          settings: {
+            slidesToShow: 2, // Show 2 slides
+          },
+        },
+        {
+          breakpoint: 768, // Medium Devices
+          settings: {
+            slidesToShow: 1, // Show 1 slide
+          },
+        },
+        {
+          breakpoint: 576, // Small Devices
+          settings: {
+            slidesToShow: 1, // Show 1 slide
+          },
+        },
+      ],
     };
 
     return (
-      <div className="w-100">
+      <div className="carousel">
         <h1>you may also like</h1>
         <Slider {...settings}>
           {data.map((product) => (

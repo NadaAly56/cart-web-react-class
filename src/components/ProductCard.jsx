@@ -1,4 +1,5 @@
-import { Component } from "react";import PropsTypes from "prop-types";
+import { Component } from "react";
+import PropsTypes from "prop-types";
 import { AppContext } from "../lib/AppContext";
 import StarRating from "./StarRating";
 export default class ProductCard extends Component {
@@ -8,10 +9,14 @@ export default class ProductCard extends Component {
   static contextType = AppContext;
   render() {
     const { product } = this.props;
-    const { addProductToCart, handleOpenCart } = this.context;
+    const { addProductToCart, handleOpenCart, handleCurrentProduct } =
+      this.context;
     return (
       <div className="card">
-        <div className="card-image">
+        <div
+          onClick={() => handleCurrentProduct(product)}
+          className="card-image pointer"
+        >
           <img src={product.imgSrc} alt="Device Image" width={230} />
         </div>
         <div className="card-content">
@@ -28,7 +33,7 @@ export default class ProductCard extends Component {
             <button
               className="add-to-cart"
               onClick={() => {
-                addProductToCart({ ...product, count: 1 });
+                addProductToCart(product);
                 handleOpenCart();
                 window.scroll(0, 0);
               }}

@@ -10,6 +10,37 @@ $stars: #feb801;
 $border: #d9d9d9;
 $text-disabled: #808080;
 
+// Mixins
+@mixin xs {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
 // Font Face
 @font-face {
   font-family: "Poppins";
@@ -84,6 +115,18 @@ ul {
   width: 80%;
   margin: 0 auto;
   height: 100%;
+  @include xs {
+    width: 95%;
+  }
+  @include sm {
+    width: 90%;
+  }
+  @include md {
+    width: 90%;
+  }
+  @include lg {
+    width: 90%;
+  }
 }
 
 .container-fluid {
@@ -94,6 +137,15 @@ ul {
 .row {
   display: flex;
   align-items: center;
+  @include xs {
+    flex-wrap: wrap;
+  }
+  @include sm {
+    flex-wrap: wrap;
+  }
+  @include md {
+    flex-wrap: wrap;
+  }
 }
 
 .pointer {
@@ -152,6 +204,18 @@ ul {
   nav {
     justify-content: space-between;
   }
+  .nav-items {
+    gap: 30px;
+    @include xs {
+      display: none;
+    }
+    @include sm {
+      display: none;
+    }
+    @include md {
+      display: none;
+    }
+  }
 }
 
 .circle-icon,
@@ -162,7 +226,11 @@ ul {
   background-color: $icon-background;
   justify-content: center;
 }
-
+.brand {
+  @include xs {
+    width: 90px;
+  }
+}
 // Breadcrumbs
 .breadcrumb-container {
   height: 80px;
@@ -202,8 +270,20 @@ ul {
 // Product Overview
 .product-overview {
   padding: 90px 0;
-  gap: 100px;
   align-items: flex-start;
+  gap: 100px;
+  @include xs {
+    gap: 50px;
+  }
+  @include sm {
+    gap: 50px;
+  }
+  @include md {
+    gap: 50px;
+  }
+  @include lg {
+    gap: 50px;
+  }
 }
 
 .product-img {
@@ -211,7 +291,7 @@ ul {
   border-radius: 16px;
   padding: 82px 106px;
   position: relative;
-
+  width: 530px;
   .sale-padge {
     position: absolute;
     top: 40px;
@@ -222,6 +302,30 @@ ul {
     color: #fff;
     font-size: 18px;
     text-align: center;
+  }
+  @include xs {
+    width: 100%;
+    text-align: center;
+    height: 245px;
+    padding: 15px 44px;
+  }
+  @include sm {
+    width: 100%;
+    text-align: center;
+    height: 350px;
+    padding: 15px 44px;
+  }
+  img {
+    width: 320px;
+    height: 280px;
+    @include xs {
+      width: 231px;
+      height: 245px;
+    }
+    @include sm {
+      width: 231px;
+      height: 350px;
+    }
   }
 }
 
@@ -373,6 +477,15 @@ ul {
   right: -5px;
 }
 // Slider
+.carousel {
+  width: 100%;
+  @include xs {
+    width: 80%;
+  }
+  @include sm {
+    width: 80%;
+  }
+}
 .card {
   border: 1px solid $border;
   border-radius: 10px;
@@ -440,11 +553,23 @@ ul {
 .slick-next:before {
   color: $secondary-color;
   font-size: 25px;
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
 }
 
 .slick-prev,
 .slick-next {
   background-color: transparent;
+  @include xs {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
 }
 
 // Scrollbar

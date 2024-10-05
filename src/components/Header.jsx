@@ -1,4 +1,5 @@
-import { Component } from "react";import { Link } from "react-router-dom";
+import { Component } from "react";
+import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
 export default class Header extends Component {
@@ -11,17 +12,22 @@ export default class Header extends Component {
               <img src="/images/icons/menu.svg" alt="menu" />
             </li>
             <li>
-              <img src="/images/brand.svg" alt="brand" />
+              <img src="/images/brand.svg" alt="brand" className="brand" />
             </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
+            <div className="nav-items row">
+              <li>
+                <Link to="/">Products</Link>
+              </li>
+              <li>
+                <Link to="/about">Best Sellers</Link>
+              </li>
+              <li>
+                <Link to="/profile">New Arrival</Link>
+              </li>
+              <li>
+                <Link to="/profile">Contact Us</Link>
+              </li>
+            </div>
           </ul>
           <ul>
             <li className="circle-icon row">

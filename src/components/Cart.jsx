@@ -11,7 +11,7 @@ export default class Cart extends Component {
       handleCloseCart,
     } = this.context;
     const subTotal = products.reduce(
-      (acc, current) => acc + current.price * current.count,
+      (acc, current) => acc + current.price * (current.count ?? 1),
       0
     );
     return (
@@ -56,7 +56,9 @@ export default class Cart extends Component {
                                 <p>{product.name}</p>
                                 <p className="price">
                                   {product.price} EGP{" "}
-                                  <span>X {product.count}</span>
+                                  {product.count > 1 && (
+                                    <span>X {product.count}</span>
+                                  )}
                                 </p>
                               </div>
                             </div>

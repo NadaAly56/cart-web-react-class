@@ -1,9 +1,12 @@
-import { Component, createContext } from "react";import PropTypes from "prop-types";
+import { Component, createContext } from "react";
+import PropTypes from "prop-types";
+import data from "../utils/services/data";
 
 const AppContext = createContext();
 class AppContextProvider extends Component {
   state = {
     products: [],
+    currentProduct: data[0],
     productsCount: 0,
     isCartOpen: false,
   };
@@ -13,25 +16,31 @@ class AppContextProvider extends Component {
     this.removeProductFromCart = this.removeProductFromCart.bind(this);
     this.handleOpenCart = this.handleOpenCart.bind(this);
     this.handleCloseCart = this.handleCloseCart.bind(this);
+    this.handleCurrentProduct = this.handleCurrentProduct.bind(this);
   }
   addProductToCart(product) {
     const isProductExsist = this.state.products.find(
       (prod) => prod.id === product.id
     );
     if (isProductExsist) {
-      const updatedProductsList = this.state.products.map((prod) => {
-        if (prod.id === product.id) prod.count = product.count;
-        return prod;
-      });
-      this.setState(() => ({
-        products: updatedProductsList,
-        productsCount: updatedProductsList.reduce(
-          (acc, current) => acc + current.count,
-          0
-        ),
-      }));
+      if (product.count) {
+        const updatedProductsList = this.state.products.map((prod) => {
+          if (prod.id === product.id) prod.count = product.count;
+          return prod;
+        });
+        this.setState(() => ({
+          products: updatedProductsList,
+          productsCount: updatedProductsList.reduce(
+            (acc, current) => acc + current.count,
+            0
+          ),
+        }));
+      }
     } else {
-      const newProductsList = [...this.state.products, product];
+      const newProductsList = [
+        ...this.state.products,
+        { ...product, count: product.count || 1 },
+      ];
       this.setState(() => ({
         products: newProductsList,
         productsCount: newProductsList.reduce(
@@ -53,6 +62,11 @@ class AppContextProvider extends Component {
       ),
     }));
   }
+  handleCurrentProduct(product) {
+    this.setState({
+      currentProduct: product,
+    });
+  }
   handleCloseCart(e) {
     e.stopPropagation();
     this.setState({ isCartOpen: false });
@@ -61,17 +75,19 @@ class AppContextProvider extends Component {
     this.setState({ isCartOpen: true });
   }
   render() {
-    const { products, productsCount, isCartOpen } = this.state;
+    const { products, productsCount, isCartOpen, currentProduct } = this.state;
     return (
       <AppContext.Provider
         value={{
           products,
           productsCount,
           isCartOpen,
+          currentProduct,
           addProductToCart: this.addProductToCart,
           removeProductFromCart: this.removeProductFromCart,
           handleOpenCart: this.handleOpenCart,
           handleCloseCart: this.handleCloseCart,
+          handleCurrentProduct: this.handleCurrentProduct,
         }}
       >
         {this.props.children}
