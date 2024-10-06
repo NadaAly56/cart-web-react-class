@@ -354,6 +354,9 @@ ul {
     color: #fff;
     border-radius: 12px;
     margin: 28px 0;
+    @include xs {
+      width: 180px;
+    }
   }
 }
 
